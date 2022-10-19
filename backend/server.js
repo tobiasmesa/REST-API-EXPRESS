@@ -1,1 +1,10 @@
-console.log('This is working')
+/* Imports  */
+const express =  require('express')
+const dotenv = require('dotenv').config()
+const port = process.env.PORT || 3000 // Just in case
+
+const app = express() 
+
+app.use('/api/tasks', require('./routes/tasksRoute.js'))
+
+app.listen(port, () => console.log(`Server started on port ${port}`))
