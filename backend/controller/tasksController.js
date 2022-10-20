@@ -4,6 +4,7 @@
 //@access Private
 const getTask = (req, res) => 
 {
+
     res.status(200).json({ message: 'Get Tasks!'});
 }
 
@@ -12,6 +13,13 @@ const getTask = (req, res) =>
 //@access Private
 const setTask = (req, res) => 
 {
+   // console.log(req.body.text)
+    if(!req.body.text)
+    {
+        res.status(400)
+        throw new Error('Please add a text field!')
+    }
+
     res.status(200).json({ message: 'Create task!'});
 }
 
